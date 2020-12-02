@@ -1,0 +1,52 @@
+#!/bin/env python
+import os
+import sys
+if len(sys.argv) != 2:
+    print('usage: make_d <day_number>')
+    sys.exit(-1)
+
+day = int(sys.argv[1])
+if day < 10:
+    day = '0%s' % day
+else:
+    day = str(day)
+
+fname = 'd%s_1.py' % day
+if os.path.isfile(fname):
+    print('ERROR file exists!!!')
+    sys.exit(-1)
+f = open(fname, 'w')
+f.write('import os\n')
+f.write('import sys\n')
+f.write('import math\n')
+f.write('import time\n')
+f.write('import string\n')
+f.write('import pprint\n')
+f.write('import itertools\n')
+f.write('import traceback\n')
+f.write('import optparse\n')
+f.write('\n')
+f.write('parser = optparse.OptionParser()\n')
+f.write('parser.add_option("-v", action="count", dest="verbose", default=0)\n')
+f.write('parser.add_option("-e", action="count", dest="example", default=0)\n')
+f.write('parser.add_option("-2", action="store_true", dest="part2", default=False)\n')
+f.write('parser.add_option("--step", action="store_true", dest="step", default=False)\n')
+f.write('parser.add_option("--display", action="store_true", dest="display", default=False)\n')
+f.write('(opts, args) = parser.parse_args()\n')
+f.write('\n')
+f.write('in_file_name = "d%s_input.txt"\n' % day)
+f.write('if opts.example > 0:\n')
+f.write('    in_file_name = "d%s' % day + '_examples%s.txt" % opts.example\n')
+f.write('\n')
+f.write('with open(in_file_name, "r") as f:\n')
+f.write('    data = [x.strip() for x in f.readlines()]\n')
+f.write('\n')
+f.write('print(in_file_name, len(data)\n'))
+f.write('\n')
+f.write('\n')
+f.write('\n')
+f.write('if not opts.part2:\n')
+f.write('    sys.exit(0)\n')
+f.write('\n')
+f.close()
+
