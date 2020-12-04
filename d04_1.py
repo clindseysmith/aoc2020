@@ -99,6 +99,7 @@ if len(passport) > 0:
     print('end process')
     total += 1
     valid += process(passport)
+    valid2 += process(passport, p2=True)
 
 print('PART1: {0} of {1} passports are valid'.format(valid, total))
 
