@@ -58,9 +58,9 @@ print(len(nearby_tickets))
 invalid_sum = 0
 valid_tickets = []
 for ticket in nearby_tickets:
-    invalids =  sum([num for num in ticket if not valid_nums[num]])
-    invalid_sum += invalids
-    if invalids == 0:
+    invalids =  [num for num in ticket if not valid_nums[num]]
+    invalid_sum += sum(invalids)
+    if len(invalids) == 0:
         valid_tickets.append(ticket)
 print('PART1: sum of invalid nums in nearby_tickets: {0}'.format(invalid_sum))
 
